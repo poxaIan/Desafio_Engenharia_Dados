@@ -1,0 +1,40 @@
+[2024-07-04 15:02:59 -0300] [70535] [INFO] Starting gunicorn 21.2.0
+[2024-07-04 15:02:59 -0300] [70535] [ERROR] Connection in use: ('::', 8793)
+[2024-07-04 15:02:59 -0300] [70535] [ERROR] Retrying in 1 second.
+[2m2024-07-04T18:03:00.454777Z[0m [[32m[1minfo     [0m] [1mEnvironment 'dev' is active   [0m
+[2024-07-04 15:03:00 -0300] [70535] [ERROR] Connection in use: ('::', 8793)
+[2024-07-04 15:03:00 -0300] [70535] [ERROR] Retrying in 1 second.
+[2024-07-04 15:03:01 -0300] [70535] [ERROR] Connection in use: ('::', 8793)
+[2024-07-04 15:03:01 -0300] [70535] [ERROR] Retrying in 1 second.
+[2024-07-04 15:03:02 -0300] [70535] [ERROR] Connection in use: ('::', 8793)
+[2024-07-04 15:03:02 -0300] [70535] [ERROR] Retrying in 1 second.
+[2024-07-04 15:03:03 -0300] [70535] [ERROR] Connection in use: ('::', 8793)
+[2024-07-04 15:03:03 -0300] [70535] [ERROR] Retrying in 1 second.
+[2024-07-04 15:03:04 -0300] [70535] [ERROR] Can't connect to ('::', 8793)
+[2m2024-07-04T18:03:33.458857Z[0m [[32m[1minfo     [0m] [1mEnvironment 'dev' is active   [0m
+[2m2024-07-04T18:04:05.386711Z[0m [[32m[1minfo     [0m] [1mEnvironment 'dev' is active   [0m
+[2m2024-07-04T18:04:37.864889Z[0m [[32m[1minfo     [0m] [1mEnvironment 'dev' is active   [0m
+[2m2024-07-04T18:05:10.469205Z[0m [[32m[1minfo     [0m] [1mEnvironment 'dev' is active   [0m
+[2m2024-07-04T18:05:42.289979Z[0m [[32m[1minfo     [0m] [1mEnvironment 'dev' is active   [0m
+[2m2024-07-04T18:06:15.642504Z[0m [[32m[1minfo     [0m] [1mEnvironment 'dev' is active   [0m
+[2m2024-07-04T18:06:47.289581Z[0m [[32m[1minfo     [0m] [1mEnvironment 'dev' is active   [0m
+[2m2024-07-04T18:07:19.013918Z[0m [[32m[1minfo     [0m] [1mEnvironment 'dev' is active   [0m
+[2m2024-07-04T18:07:50.798676Z[0m [[32m[1minfo     [0m] [1mEnvironment 'dev' is active   [0m
+[2m2024-07-04T18:08:22.792020Z[0m [[32m[1minfo     [0m] [1mEnvironment 'dev' is active   [0m
+[2m2024-07-04T18:08:54.615767Z[0m [[32m[1minfo     [0m] [1mEnvironment 'dev' is active   [0m
+[2m2024-07-04T18:09:26.337146Z[0m [[32m[1minfo     [0m] [1mEnvironment 'dev' is active   [0m
+[2m2024-07-04T18:09:58.116647Z[0m [[32m[1minfo     [0m] [1mEnvironment 'dev' is active   [0m
+[2m2024-07-04T18:10:29.808634Z[0m [[32m[1minfo     [0m] [1mEnvironment 'dev' is active   [0m
+[2m2024-07-04T18:11:01.583431Z[0m [[32m[1minfo     [0m] [1mEnvironment 'dev' is active   [0m
+[2m2024-07-04T18:11:33.773557Z[0m [[32m[1minfo     [0m] [1mEnvironment 'dev' is active   [0m
+[2m2024-07-04T18:12:05.943550Z[0m [[32m[1minfo     [0m] [1mEnvironment 'dev' is active   [0m
+[2m2024-07-04T18:12:38.517903Z[0m [[32m[1minfo     [0m] [1mEnvironment 'dev' is active   [0m
+[2m2024-07-04T18:13:10.293403Z[0m [[32m[1minfo     [0m] [1mEnvironment 'dev' is active   [0m
+[2m2024-07-04T18:13:41.980044Z[0m [[32m[1minfo     [0m] [1mEnvironment 'dev' is active   [0m
+[2m2024-07-04T18:14:13.796520Z[0m [[32m[1minfo     [0m] [1mEnvironment 'dev' is active   [0m
+[2m2024-07-04T18:14:46.399496Z[0m [[32m[1minfo     [0m] [1mEnvironment 'dev' is active   [0m
+[2m2024-07-04T18:15:18.710091Z[0m [[32m[1minfo     [0m] [1mEnvironment 'dev' is active   [0m
+[2m2024-07-04T18:15:50.706326Z[0m [[32m[1minfo     [0m] [1mEnvironment 'dev' is active   [0m
+[2m2024-07-04T18:16:22.463735Z[0m [[32m[1minfo     [0m] [1mEnvironment 'dev' is active   [0m
+[2m2024-07-04T18:16:54.914400Z[0m [[32m[1minfo     [0m] [1mEnvironment 'dev' is active   [0m
+[2m2024-07-04T18:17:26.758943Z[0m [[32m[1minfo     [0m] [1mEnvironment 'dev' is active   [0m

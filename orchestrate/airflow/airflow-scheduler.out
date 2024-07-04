@@ -1,0 +1,16 @@
+  ____________       _____________
+ ____    |__( )_________  __/__  /________      __
+____  /| |_  /__  ___/_  /_ __  /_  __ \_ | /| / /
+___  ___ |  / _  /   _  __/ _  / / /_/ /_ |/ |/ /
+ _/_/  |_/_/  /_/    /_/    /_/  \____/____/|__/
+[[34m2024-07-04T15:02:59.676-0300[0m] {[34mtask_context_logger.py:[0m63} INFO[0m - Task context logging is enabled[0m
+[[34m2024-07-04T15:02:59.685-0300[0m] {[34mexecutor_loader.py:[0m115} INFO[0m - Loaded executor: SequentialExecutor[0m
+[[34m2024-07-04T15:02:59.780-0300[0m] {[34mscheduler_job_runner.py:[0m808} INFO[0m - Starting the scheduler[0m
+[[34m2024-07-04T15:02:59.780-0300[0m] {[34mscheduler_job_runner.py:[0m815} INFO[0m - Processing each file at most -1 times[0m
+[[34m2024-07-04T15:02:59.783-0300[0m] {[34mmanager.py:[0m169} INFO[0m - Launched DagFileProcessorManager with pid: 70536[0m
+[[34m2024-07-04T15:02:59.784-0300[0m] {[34mscheduler_job_runner.py:[0m1619} INFO[0m - Adopting or resetting orphaned tasks for active dag runs[0m
+[[34m2024-07-04T15:02:59.786-0300[0m] {[34msettings.py:[0m60} INFO[0m - Configured default timezone UTC[0m
+[[34m2024-07-04T15:02:59.793-0300[0m] {[34mscheduler_job_runner.py:[0m1642} INFO[0m - Marked 2 SchedulerJob instances as failed[0m
+[2024-07-04T15:02:59.797-0300] {manager.py:392} WARNING - Because we cannot use more than 1 thread (parsing_processes = 2) when using sqlite. So we set parallelism to 1.
+[[34m2024-07-04T15:07:59.900-0300[0m] {[34mscheduler_job_runner.py:[0m1619} INFO[0m - Adopting or resetting orphaned tasks for active dag runs[0m
+[[34m2024-07-04T15:12:59.978-0300[0m] {[34mscheduler_job_runner.py:[0m1619} INFO[0m - Adopting or resetting orphaned tasks for active dag runs[0m
