@@ -32,7 +32,7 @@ bash ./init.sh 2024-10-06
 
 # Verifique onde o pipeline falhou
 Navegue até o diretório queries/arquivos para analisar onde erros podem ocorre na conversão dos arquivos.
-![image] 
+![image](https://github.com/poxaIan/Desafio_Engenharia_Dados/blob/main/Docs/queries.png)
 ## Resultado da Consulta
 
 Verifique o resultado salvo localmen
