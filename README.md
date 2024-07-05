@@ -31,12 +31,18 @@ bash ./init.sh 2024-10-06
 ```
 ## Resultado da Consulta
 
-Verifique o resultado salvo localmenente em data/postgres
+Verifique o resultado salvo localmente em data/postgres
+
 ![image](https://github.com/poxaIan/Desafio_Engenharia_Dados/blob/main/Docs/resultados.png)
-Imagem mostrando cada 
+
+Imagem mostrando que para cada tabela existente foi criada uma saída salva localmente.
+
 # Verifique onde o pipeline falhou
 Navegue até o diretório queries/arquivos para analisar onde erros podem ocorre na conversão dos arquivos.
+
 ![image](https://github.com/poxaIan/Desafio_Engenharia_Dados/blob/main/Docs/queries.png)
+
+Imagem mostrando onde encontrar os arquivos sql convertidos em csv para análise.
 
 
 
