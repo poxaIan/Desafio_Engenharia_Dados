@@ -72,6 +72,7 @@ Cada tabela existente foi criada uma saída salva local,
 onde foram **extraidas todas as tabelas do banco de dados da origem.**
 
 ![image](https://github.com/poxaIan/Desafio_Engenharia_Dados/blob/main/Docs/resultados.png)
+
 Arquivos de saídas salvas localmente
 
 Para os Jobs:
