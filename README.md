@@ -5,6 +5,8 @@ Indicium Tech Code Challenge (https://github.com/techindicium/code-challenge).
 
 Autor: Ian Miranda Gomes de Souza - ian.mgsouza@gmail.com
 
+
+### Tecnologias Usadas:
 - Scheduler: **Airflow**
 
 - Data Loader: **Meltano (Baseado em Python)**
@@ -35,7 +37,7 @@ bash ./init.sh
 bash ./init.sh 2024-10-06
 ```
 
-![image] (https://github.com/poxaIan/Desafio_Engenharia_Dados/blob/main/Docs/Fluxograma.png)
+![image](https://github.com/poxaIan/Desafio_Engenharia_Dados/blob/main/Docs/Fluxograma.png)
 
 Fluxograma de como funciona o projeto no geral - Fonte: Autor do Projeto
 
