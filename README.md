@@ -73,9 +73,9 @@ onde foram **extraidas todas as tabelas do banco de dados da origem.**
 
 ![image](https://github.com/poxaIan/Desafio_Engenharia_Dados/blob/main/Docs/resultados.png)
 
-Arquivos de saídas salvas localmente
+Print do Autor do Projeto dos arquivos de saídas salvas localmente.
 
-Para os Jobs:
+Verifique os Jobs:
 
 ```
 meltano run details-to-csv 
@@ -92,7 +92,6 @@ O formato .csv foi escolhido pois:
 
 ## Step 2
 
-### Comparação Mostrando: Arquivos Locais e Postgres
 
 Dados são carregados dos arquivos locais da etapa 1
 para o banco de dados final **dbdata_target**. A execução do job foi:
@@ -106,13 +105,17 @@ detalha os pedidos. Esta consulta está em `queries/final_goal.sql`, com os resu
 em `queries/{ISO_date}/final_goal.csv`. Consulte também outras consultas de exemplo no 
 mesmo diretório.
 
-- **Escape de Delimitadores CSV:**
-Alguns arquivos têm vírgulas no conteúdo. Em vez de escapá-las, os delimitadores foram alterados para ponto e vírgula.
 
 ## Considerações Importantes
+
+
+- **Delimitadores CSV:**
+Alguns arquivos têm vírgulas no conteúdo, foram alterados para ponto e vírgula.
+
+
 - **Configuração do tap-postgres e target-csv-tables:**
 Utilizados na etapa 1 para carregar o banco de dados Northwind no disco. 
-O extrator recupera apenas o esquema público (select: - public-*.*), 
+O extrator recupera apenas o esquema público (`'select: - public-*.*`), 
 ignorando information_schema. Tabelas vazias, 
 como customer_customer_demo e customer_demographics, não são criadas no disco.
 
