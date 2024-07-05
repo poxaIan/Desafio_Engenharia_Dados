@@ -13,7 +13,7 @@ Autor: Ian Miranda Gomes de Souza - ian.mgsouza@gmail.com
 
 - Database: **PostgreSQL**
 
-- Python 3.9
+- Python 3.9 ou inferior
 
 ## Configuração do Ambiente
 
@@ -113,9 +113,12 @@ meltano run disk-to-postgres
 
 O banco de dados finaliza com todas as tabelas necessárias para a consulta que 
 detalha os pedidos. Esta consulta está em `queries/final_goal.sql`, com os resultados 
-em `queries/{ISO_date}/final_goal.csv`. Consulte também outras consultas de exemplo no 
+em `queries/{data_escolhida}/final_goal.csv`. Consulte também outras consultas de exemplo no 
 mesmo diretório.
 
+![image](https://github.com/poxaIan/Desafio_Engenharia_Dados/blob/main/Docs/step2.png)
+
+Arquivo final_goal.csv - Fonte: Autor do Projeto
 
 ## Considerações Importantes
 
