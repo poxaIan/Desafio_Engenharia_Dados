@@ -1,12 +1,17 @@
-# Relatório do Desafio de Engenharia de Dados
+# Relatório Desafio de Engenharia de Dados
 ## Introdução
-Este documento detalha a execução e implementação da solução para o Indicium Tech Code Challenge.
+Este documento detalha a execução e implementação da solução para o
+Indicium Tech Code Challenge (https://github.com/techindicium/code-challenge).
+
+Autor: Ian Miranda Gomes de Souza - ian.mgsouza@gmail.com
 
 - Scheduler: **Airflow**
 
 - Data Loader: **Meltano (Baseado em Python)**
 
 - Database: **PostgreSQL**
+
+- Python 3.9
 
 ## Configuração do Ambiente
 
@@ -15,7 +20,7 @@ Este documento detalha a execução e implementação da solução para o Indici
 pip install meltano
 ```
 
-**Construção do Projeto:** Executado para configurar o ambiente e instalar dependências adicionais necessárias para o projeto.
+**Construção do Projeto:** Executado para **configurar o ambiente** e instalar dependências adicionais necessárias para o projeto.
 ```
 bash ./build.sh
 ```
@@ -29,69 +34,133 @@ bash ./init.sh
 ```
 bash ./init.sh 2024-10-06
 ```
-# Resultado da Consulta
 
-Verifique o resultado salvo localmente em data/postgres, **processo foi concluído com sucesso**
+![image] (https://github.com/poxaIan/Desafio_Engenharia_Dados/blob/main/Docs/Fluxograma.png)
+
+Fluxograma de como funciona o projeto no geral - Fonte: Autor do Projeto
+
+# Resultados das Consultas
+
+## Step 1
+
+Verifique os resultados salvo localmente em: 
+
+```
+/data/postgres/{table}/{Data_Escolhida}/{table}.csv
+/data/csv/{Data_Escolhida}/order_details.csv
+```
 
 ![image](https://github.com/poxaIan/Desafio_Engenharia_Dados/blob/main/Docs/resultados.png)
 
-Imagem mostrando que para cada tabela existente foi criada uma saída salva localmente, 
+Cada tabela existente foi criada uma saída salva local, 
 onde foram **extraidas todas as tabelas do banco de dados da origem.**
+Para os Jobs:
 
-### Comparação Mostrando os Arquivos Locais ou no Postgres
+```
+meltano run details-to-csv 
+meltano run postgres-to-csv
+```
 
-A seguir uma comparação do arquivo orders.csv salvo localmente com ele no Postgres:
+O formato .csv foi escolhido pois:
 
-![image](https://github.com/poxaIan/Desafio_Engenharia_Dados/blob/main/Docs/orders_csv.png) 
-Imagem mostrando o arquivo orders_csv salvo localmente.
+- Simplicidade: Formato de texto fácil de criar, ler e editar.
+- Compatibilidade: Suportado por quase todos os softwares de planilhas e bancos de dados.
+- Eficiência: Leve, compacto e rápido para transferir e carregar.
+- Flexibilidade: Fácil de integrar e personalizar com scripts e ferramentas.
+- Popularidade: Amplamente usado em data science e análise de dados.
 
-![image](https://github.com/poxaIan/Desafio_Engenharia_Dados/blob/main/Docs/orders_south.png)
-Imagem mostrando a tabela orders do Postgres do **segundo banco de dados criado.**
-# Verifique onde o pipeline falhou
+## Step 2
+
+### Comparação Mostrando: Arquivos Locais e Postgres
+
+Dados são carregados dos arquivos locais da etapa 1
+para o banco de dados final **dbdata_target**. A execução do job foi:
+
+```
+meltano run disk-to-postgres
+```
+
+O banco de dados finaliza com todas as tabelas necessárias para a consulta que 
+detalha os pedidos. Esta consulta está em `queries/final_goal.sql`, com os resultados 
+em `queries/{ISO_date}/final_goal.csv`. Consulte também outras consultas de exemplo no 
+mesmo diretório.
+
+- **Escape de Delimitadores CSV:**
+Alguns arquivos têm vírgulas no conteúdo. Em vez de escapá-las, os delimitadores foram alterados para ponto e vírgula.
+
+## Considerações Importantes
+- **Configuração do tap-postgres e target-csv-tables:**
+Utilizados na etapa 1 para carregar o banco de dados Northwind no disco. 
+O extrator recupera apenas o esquema público (select: - public-*.*), 
+ignorando information_schema. Tabelas vazias, 
+como customer_customer_demo e customer_demographics, não são criadas no disco.
+
+
+- **Manipulação do Tipo de Dados Real:**
+Os campos orders.freight e products.unit_price no banco Northwind, que usam o tipo Real, 
+foram mapeados para float usando o meltano-map-transformer. O tipo bpchar é tratado 
+como string pelo tap.
+
+### Verificação se ocorrer falha no pipeline
 Navegue até o diretório queries/arquivos para analisar onde erros podem ocorre na conversão dos arquivos.
 
 ![image](https://github.com/poxaIan/Desafio_Engenharia_Dados/blob/main/Docs/queries.png)
-
 Imagem mostrando onde encontrar os arquivos sql convertidos em csv para análise.
 
+A seguir prints dos arquivos salvos localmente e com eles no Postgres:
+
+![image](https://github.com/poxaIan/Desafio_Engenharia_Dados/blob/main/Docs/orders_csv.png) 
+Arquivo orders_csv salvo localmente.
+
+![image](https://github.com/poxaIan/Desafio_Engenharia_Dados/blob/main/Docs/orders_south.png)
+Tabela orders do Postgres do **segundo banco de dados criado.**
 
 
-## Estrutura do Projeto
 
-Pasta data/postgres: Local onde os arquivos CSV são salvos após a extração.
 
-Banco de Dados challenge_db2_1: Banco de dados PostgreSQL onde os dados transformados são carregados.
 
-## Configuração do Docker
-Foram configurados dois serviços de banco de dados PostgreSQL usando Docker:
 
-db: Banco de dados de origem contendo os dados brutos.
+## Airflow
 
-db2: Banco de dados de destino onde os dados transformados são carregados.
+Verificação se o airflow está rodando em segundo plano
+```
+meltano invoke airflow scheduler
+```
 
-Os dados foram inicializados a partir de arquivos SQL fornecidos, e volumes Docker foram usados para persistir os dados entre reinicializações.
+Verificação se os agendamentos estão configurados corretamente:
 
-## Pipeline ETL
-O pipeline ETL foi configurado usando o Meltano:
+```
+meltano invoke airflow dags list
+```
 
-Extractors: Utilizados para extrair dados dos arquivos CSV.
+Verificação dos próximos 10 tempos de execução para cada dag:
 
-Loaders: Utilizados para carregar os dados transformados no banco de dados PostgreSQL.
-
-Mappers: Utilizados para transformar os dados conforme necessário.
-
-## Resultados
-Extração e Transformação
-Os dados foram extraídos com sucesso dos arquivos CSV e transformados conforme necessário. As transformações incluíram ajustes de tipos de dados e a configuração de chaves primárias compostas para garantir a integridade dos dados.
-
-Carregamento
-Os dados transformados foram carregados com sucesso no banco de dados PostgreSQL challenge_db2_1. A estrutura final do banco de dados atendeu aos requisitos do desafio, permitindo a execução de consultas SQL para verificar a integridade e precisão dos dados carregados.
+```
+meltano invoke airflow dags next-execution -n 10 meltano_load-details-csv_details-to-csv
+meltano invoke airflow dags next-execution -n 10 meltano_load-postgres-csv_postgres-to-csv 
+meltano invoke airflow dags next-execution -n 10 meltano_load-disk-postgres_disk-to-postgres
+```
 
 ## Desafios Enfrentados
-Configuração Inicial: A configuração inicial do ambiente, incluindo a instalação do Meltano e a configuração do Docker, apresentou alguns desafios, especialmente em relação à compatibilidade de versões.
-Compatibilidade do Docker Compose: Foi necessário ajustar os arquivos de script para garantir a compatibilidade com a versão do Docker Compose utilizada.
-Conflitos de Porta: Houve a necessidade de gerenciar conflitos de porta com outros serviços em execução no sistema.
-Padrões de Nome de Arquivo: O script organiza_details.py apresentou dificuldades ao lidar com padrões de nome de arquivo, exigindo ajustes para garantir que os arquivos fossem processados corretamente.
+- **Configuração Inicial:** A configuração inicial do ambiente, incluindo a 
+instalação do Meltano e a configuração do Docker, apresentou alguns desafios, 
+especialmente em relação à compatibilidade de versões.
+
+
+- **Compatibilidade do Docker Compose:** Foi necessário ajustar os arquivos de script 
+para garantir a compatibilidade com a versão do Docker Compose utilizada.
+
+
+- **Conflitos de Porta:** Houve a necessidade de gerenciar conflitos de porta com outros 
+serviços em execução no sistema.
+
+
+- **Padrões de Nome de Arquivo:** O script organiza_details.py apresentou dificuldades ao lidar com padrões de nome de arquivo, exigindo ajustes para garantir que os arquivos fossem processados corretamente.
 
 ## Conclusão
-Apesar dos desafios enfrentados, a solução foi implementada com sucesso. Os dados foram extraídos de arquivos locais, transformados conforme necessário e carregados no banco de dados PostgreSQL conforme os requisitos do desafio. Este projeto proporcionou uma experiência valiosa no uso de ferramentas de ETL e orquestração de dados, como Meltano e Docker, e demonstrou a eficácia dessas ferramentas na automação de processos de engenharia de dados.
+Apesar dos desafios enfrentados, a solução foi **implementada com sucesso.** 
+Os dados foram extraídos de arquivos locais, transformados conforme necessário 
+e carregados no banco de dados PostgreSQL conforme os requisitos do desafio. 
+Este projeto proporcionou uma experiência valiosa no uso de ferramentas de ETL 
+e orquestração de dados, como Meltano e Docker, e demonstrou a eficácia dessas 
+ferramentas na automação de processos de engenharia de dados.
