@@ -5,6 +5,7 @@ Indicium Tech Code Challenge (https://github.com/techindicium/code-challenge).
 
 Autor: Ian Miranda Gomes de Souza - ian.mgsouza@gmail.com
 
+GitHub do Desafio - https://github.com/poxaIan/Desafio_Engenharia_Dados
 
 ### Tecnologias Usadas:
 - Scheduler: **Airflow**
