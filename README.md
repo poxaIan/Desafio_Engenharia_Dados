@@ -10,33 +10,43 @@ Este documento detalha a execução e implementação da solução para o Indici
 
 ## Configuração do Ambiente
 
-Instalação do Meltano: Ferramenta que facilita o gerenciamento de pipelines de dados.
+**Instalação do Meltano:** Ferramenta que facilita o gerenciamento de pipelines de dados.
 ```
 pip install meltano
 ```
 
-Construção do Projeto: Executado para configurar o ambiente e instalar dependências adicionais necessárias para o projeto.
+**Construção do Projeto:** Executado para configurar o ambiente e instalar dependências adicionais necessárias para o projeto.
 ```
 bash ./build.sh
 ```
 
-Inicialização da Aplicação: Utilizado para inicializar o projeto, configurando os plugins e verificando as dependências.
+**Inicialização da Aplicação:** Utilizado para inicializar o projeto, configurando os plugins e verificando as dependências.
 ```
 bash ./init.sh
 ```
 
-Pipeline executa qualquer dia anterior. Modifique a data para escolher qualquer dia de interesse.
+**Pipeline executa qualquer dia anterior.** Modifique a data para escolher qualquer dia de interesse.
 ```
 bash ./init.sh 2024-10-06
 ```
-## Resultado da Consulta
+# Resultado da Consulta
 
-Verifique o resultado salvo localmente em data/postgres
+Verifique o resultado salvo localmente em data/postgres, **processo foi concluído com sucesso**
 
 ![image](https://github.com/poxaIan/Desafio_Engenharia_Dados/blob/main/Docs/resultados.png)
 
-Imagem mostrando que para cada tabela existente foi criada uma saída salva localmente.
+Imagem mostrando que para cada tabela existente foi criada uma saída salva localmente, 
+onde foram **extraidas todas as tabelas do banco de dados da origem.**
 
+### Comparação Mostrando os Arquivos Locais ou no Postgres
+
+A seguir uma comparação do arquivo orders.csv salvo localmente com ele no Postgres:
+
+![image](https://github.com/poxaIan/Desafio_Engenharia_Dados/blob/main/Docs/orders_csv.png) 
+Imagem mostrando o arquivo orders_csv salvo localmente.
+
+![image](https://github.com/poxaIan/Desafio_Engenharia_Dados/blob/main/Docs/orders_south.png)
+Imagem mostrando a tabela orders do Postgres do **segundo banco de dados criado.**
 # Verifique onde o pipeline falhou
 Navegue até o diretório queries/arquivos para analisar onde erros podem ocorre na conversão dos arquivos.
 
