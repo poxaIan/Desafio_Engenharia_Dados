@@ -29,13 +29,17 @@ Pipeline executa qualquer dia anterior. Modifique a data para escolher qualquer 
 ```
 bash ./init.sh 2024-10-06
 ```
+## Resultado da Consulta
 
+Verifique o resultado salvo localmenente em data/postgres
+![image](https://github.com/poxaIan/Desafio_Engenharia_Dados/blob/main/Docs/resultados.png)
+Imagem mostrando cada 
 # Verifique onde o pipeline falhou
 Navegue até o diretório queries/arquivos para analisar onde erros podem ocorre na conversão dos arquivos.
 ![image](https://github.com/poxaIan/Desafio_Engenharia_Dados/blob/main/Docs/queries.png)
-## Resultado da Consulta
 
-Verifique o resultado salvo localmen
+
+
 ## Estrutura do Projeto
 
 Pasta data/postgres: Local onde os arquivos CSV são salvos após a extração.
