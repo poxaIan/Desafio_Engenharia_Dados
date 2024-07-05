@@ -17,6 +17,17 @@ Autor: Ian Miranda Gomes de Souza - ian.mgsouza@gmail.com
 
 ## Configuração do Ambiente
 
+### Aviso Importante
+Dependendo da versão do Docker Compose instalada em seu sistema, 
+a chamada ao comando pode variar. Certifique-se de verificar se a 
+sua versão requer o uso de um hífen ou não.
+
+- Versões mais antigas: O comando é docker-compose (com hífen).
+- Versões mais recentes: O comando é docker compose (sem hífen).
+
+Por favor, ajuste seus comandos conforme a versão do Docker Compose que você está utilizando para evitar erros.
+
+### Execute os seguinte comandos para preparar o ambiente:
 **Instalação do Meltano:** Ferramenta que facilita o gerenciamento de pipelines de dados.
 ```
 pip install meltano
@@ -62,7 +73,7 @@ meltano run disk-to-postgres
 
 ## Step 1
 
-Verifique os resultados salvo localmente em: 
+Verifique os resultados salvos localmente em: 
 
 ```
 /data/postgres/{table}/{Data_Escolhida}/{table}.csv
@@ -126,9 +137,10 @@ foram mapeados para float usando o meltano-map-transformer. O tipo bpchar é tra
 como string pelo tap.
 
 ### Verificação se ocorrer falha no pipeline
-Navegue até o diretório queries/arquivos para analisar onde erros podem ocorre na conversão dos arquivos.
+Navegue até o diretório `queries/arquivos` para analisar onde erros podem ocorre na conversão dos arquivos.
 
 ![image](https://github.com/poxaIan/Desafio_Engenharia_Dados/blob/main/Docs/queries.png)
+
 Imagem mostrando onde encontrar os arquivos sql convertidos em csv para análise.
 
 A seguir prints dos arquivos salvos localmente e com eles no Postgres:
