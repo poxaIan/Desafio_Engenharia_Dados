@@ -41,6 +41,23 @@ bash ./init.sh 2024-10-06
 
 Fluxograma de como funciona o projeto no geral - Fonte: Autor do Projeto
 
+
+## Executando cada trabalho individualmente
+
+Será usado a data definida no arquivo .env, não é possível passar um argumento de data aqui
+
+Step 1:
+```
+meltano run details-to-csv
+meltano run postgres-to-csv
+```
+
+Step 2:
+```
+meltano run disk-to-postgres
+```
+
+
 # Resultados das Consultas
 
 ## Step 1
@@ -51,11 +68,12 @@ Verifique os resultados salvo localmente em:
 /data/postgres/{table}/{Data_Escolhida}/{table}.csv
 /data/csv/{Data_Escolhida}/order_details.csv
 ```
-
-![image](https://github.com/poxaIan/Desafio_Engenharia_Dados/blob/main/Docs/resultados.png)
-
 Cada tabela existente foi criada uma saída salva local, 
 onde foram **extraidas todas as tabelas do banco de dados da origem.**
+
+![image](https://github.com/poxaIan/Desafio_Engenharia_Dados/blob/main/Docs/resultados.png)
+Arquivos de saídas salvas localmente
+
 Para os Jobs:
 
 ```
